@@ -1,25 +1,26 @@
 package com.Himanshu.StudentManagement;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Builder
 public class Student {
 
-    @NonNull
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String sId;
+
     private String sFirstName;
 
-    @NonNull
     private String sLastName;
 
-    @Id
-    private int sId;
-
-    @NonNull
-    private Integer sMarks;
+    private String sMarks;
 }
