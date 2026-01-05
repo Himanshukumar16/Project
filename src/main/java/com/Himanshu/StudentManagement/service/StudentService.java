@@ -15,9 +15,7 @@ public class StudentService {
 
     public String addStudent(Student stu) {
         repo.save(stu);
-        System.out.println("Remember your id for future reference: ");
-        System.out.println(stu.getSId());
-        return "Student added successfully";
+        return "Remember your id for future reference: "+ stu.getSId();
     }
 
     public List<Student> showStudent() {
@@ -29,12 +27,14 @@ public class StudentService {
     }
 
     public String updateStudent(String id, Student student) {
-        if (repo.existsById(id)) {
-            repo.save(student);
-            return "Student updated successfully";
-        } else {
-            return "Student with id " + id + " not found.";
-        }
+//        if (repo.existsById(id)) {
+//            repo.save(student);
+//            return "Student updated successfully";
+//        } else {
+//            return "Student with id " + id + " not found.";
+//        }
+        repo.save(student);
+        return "Student updated successfully";
     }
 
     public String deleteStudent(String id) {

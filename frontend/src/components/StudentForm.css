@@ -1,0 +1,23 @@
+.student-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: list-item;
+}
+
+@media (min-width: 640px) {
+    .form-group {
+        display: flex;
+        gap: var(--spacing-md);
+    }
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Student Management</h1>
+                <button id="add-student-btn" class="btn btn-primary">
+                    <i data-lucide="plus"></i> Add Student
+                </button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div id="loading" class="loading">Loading students...</div>
+            <div id="error-message" class="error-message hidden"></div>
+            <div id="student-grid" class="student-grid hidden">
+                <!-- Students will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="student-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title">Add New Student</h2>
+                <button id="close-modal-btn" class="modal-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="student-form" class="student-form">
+                    <input type="hidden" id="student-id" name="sId">
+
+                    <div class="form-group-row">
+                        <div class="input-group">
+                            <label class="input-label" for="sFirstName">First Name</label>
+                            <input type="text" id="sFirstName" name="sFirstName" class="input-field"
+                                placeholder="e.g. John" required>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label" for="sLastName">Last Name</label>
+                            <input type="text" id="sLastName" name="sLastName" class="input-field"
+                                placeholder="e.g. Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="sMarks">Marks</label>
+                        <input type="text" id="sMarks" name="sMarks" class="input-field" placeholder="e.g. 85" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="cancel-btn" class="btn btn-outline">Cancel</button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary">
+                            <span id="submit-text">Add Student</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

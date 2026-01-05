@@ -9,32 +9,33 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin("*")
 public class controller {
 
     private final StudentService service;
 
-    @PostMapping ("/add-student")
-    public String addStudent(@RequestBody Student student){
+    @PostMapping("/add-student")
+    public String addStudent(@RequestBody Student student) {
         return service.addStudent(student);
     }
 
     @GetMapping("/show-student")
-    public List<Student> showStudent(){
+    public List<Student> showStudent() {
         return service.showStudent();
     }
 
-    @GetMapping("/show-student-by-id-{id}")
-    public Student showOneStudent(@PathVariable String id){
+    @GetMapping("/show-student-by-id/{id}")
+    public Student showOneStudent(@PathVariable String id) {
         return service.showOneStudent(id);
     }
 
-    @PutMapping("/update-student-by-id-{id}")
-    public String updateStudent(@PathVariable String id, @RequestBody Student student){
-        return service.updateStudent(id, student);
+    @PutMapping("/update-student-by-id/{id}")
+    public String updateStudent(@PathVariable("id") String id, @RequestBody Student student) {
+        return service.updateStudent(id,student);
     }
 
-    @DeleteMapping("/delete-student-by-id-{id}")
-    public String deleteStudent(@PathVariable String id){
+    @DeleteMapping("/delete-student-by-id/{id}")
+    public String deleteStudent(@PathVariable String id) {
         return service.deleteStudent(id);
     }
 }
